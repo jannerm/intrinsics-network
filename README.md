@@ -13,9 +13,7 @@ You will need [Blender](https://www.blender.org/) (2.76+) and the [ShapeNet](htt
 blender = '/om/user/janner/blender-2.76b/blender'
 shapenet = '/om/data/public/ShapeNetCore.v1'
 ```
-with the absolute paths to the Blender app and the ShapeNet library on your machine.  
-
-If you don't want to render your own datasets, `./download_data.sh` to get the annotated map data and sprites to make new maps.
+with the absolute paths to the Blender app and the ShapeNet library on your machine. The Blender-supplied Python might not come with numpy and scipy. You can either fulfill the same requirements with the Blender Python or replace `include` with a directory containing those libraries. 
 
 ## Data
 

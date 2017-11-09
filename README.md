@@ -26,11 +26,12 @@ All of the code to render the training images is in `dataset`.
 The saved images in `dataset/output/car/` should look something like this:
 
 <p align="center">
-    <img src='git/96_composite.png' width='150'/>
-    <img src='git/96_albedo.png' width='150'/>
-    <img src='git/96_shading.png' width='150'/>
-    <img src='git/96_normals.png' width='150'/>
-    <img src='git/96_lights.png' width='150'/>
+    <img src='git/96_composite.png' width='140'/>
+    <img src='git/96_albedo.png' width='140'/>
+    <img src='git/96_shading.png' width='140'/>
+    <img src='git/96_normals.png' width='140'/>
+    <img src='git/96_depth.png' width='140'/>
+    <img src='git/96_lights.png' width='140'/>
 </p>
 <p align="center">
     <em> A car with its reflectance, shading, and normals map. The lighting conditions are visualized on a sphere.</em>

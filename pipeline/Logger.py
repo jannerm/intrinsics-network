@@ -9,9 +9,7 @@ class Logger:
         self.data = [ [[],[]] for i in range(len(labels)) ]
 
     def update(self, train, val):
-        # pdb.set_trace()
         assert len(train) == len(self.labels)
-        # assert len(val) + 1 >= len(train)
         for ind in range(len(train)):
             self.data[ind][0].append(train[ind])
             if len(val) > ind:

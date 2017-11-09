@@ -26,15 +26,15 @@ All of the code to render the training images is in `dataset`.
 The saved images in `dataset/output/car/` should look something like this:
 
 <p align="center">
-    <img src='git/96_composite.png' width='140'/>
-    <img src='git/96_albedo.png' width='140'/>
-    <img src='git/96_shading.png' width='140'/>
-    <img src='git/96_normals.png' width='140'/>
-    <img src='git/96_depth.png' width='140'/>
-    <img src='git/96_lights.png' width='140'/>
+    <img src='git/96_composite.png' width='125'/>
+    <img src='git/96_albedo.png' width='125'/>
+    <img src='git/96_shading.png' width='125'/>
+    <img src='git/96_normals.png' width='125'/>
+    <img src='git/96_depth.png' width='125'/>
+    <img src='git/96_lights.png' width='125'/>
 </p>
 <p align="center">
-    <em> A car with its reflectance, shading, and normals map. The lighting conditions are visualized on a sphere.</em>
+    <em> A car with its reflectance, shading, normals map, and depth. The lighting conditions are visualized on a sphere.</em>
 </p>
 
 Since rendering can be slow, you might want to render many images in parallel. If you use SLURM, you can use `divide.py`, which works like `run.py` but also has a `--divide` argument to launch a large rendering job as many smaller jobs running concurrently.

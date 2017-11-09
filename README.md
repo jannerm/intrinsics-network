@@ -26,11 +26,11 @@ All of the code to render the training images is in `dataset`.
 The saved images in `dataset/output/car/` should look something like this:
 
 <p align="center">
-    <img src='git/2_composite.png' width='150'/>
-    <img src='git/2_albedo.png' width='150'/>
-    <img src='git/2_shading.png' width='150'/>
-    <img src='git/2_normals.png' width='150'/>
-    <img src='git/2_lights.png' width='150'/>
+    <img src='git/96_composite.png' width='150'/>
+    <img src='git/96_albedo.png' width='150'/>
+    <img src='git/96_shading.png' width='150'/>
+    <img src='git/96_normals.png' width='150'/>
+    <img src='git/96_lights.png' width='150'/>
 </p>
 <p align="center">
     <em> A car with its reflectance, shading, and normals map. The lighting conditions are visualized on a sphere.</em>
@@ -57,7 +57,13 @@ where the train and val sets are located in `data_path` and were rendered in the
 
 ## Intrinsic image prediction
 
+```
+python decomposer.py --data_path dataset/output --save_path saved/decomposer --array shader --num_train 20000 \
+		     --num_val 20 --train_sets motorbike_train, --val_set motorbike_val
+```
+
+will train a model on just motorbikes, although you can specify more datasets as with `shader.py`. The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `save_path`.
 
 ## Transfer
-Coming soon
+Coming soon. 
 

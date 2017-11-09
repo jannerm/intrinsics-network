@@ -61,7 +61,7 @@ python decomposer.py --data_path dataset/output --save_path saved/decomposer --a
 		     --num_val 20 --train_sets motorbike_train, --val_set motorbike_val
 ```
 
-will train a model on just motorbikes, although you can specify more datasets as with `shader.py`. The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `save_path`.
+will train a model on just motorbikes, although you can specify more datasets with a comma-separated list (as shown for the `shader.py command`). The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `save_path`.
 
 ## Transfer
 Coming soon. If you are comfortable with Lua, check out `lua/composer.lua`. 

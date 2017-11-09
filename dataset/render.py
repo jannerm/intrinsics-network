@@ -7,7 +7,7 @@ import sys, argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', default=False)
 parser.add_argument('--staging', default='staging')
-parser.add_argument('--shapenet', default='/om/data/public/ilkery/ShapeNetCore.v1/')
+# parser.add_argument('--shapenet', default='/om/data/public/ilkery/ShapeNetCore.v1/')
 parser.add_argument('--output', default='output/normals/')
 parser.add_argument('--category', default='random')
 parser.add_argument('--x_res', default=256)
@@ -55,7 +55,7 @@ staging = os.path.join(args.staging, str(random.random()))
 ## otherwise category is its name (e.g., Suzanne)
 if args.category in config.categories: 
     category = config.categories[args.category] 
-    loader = ShapeNetRender(args.shapenet, staging, args.output, create=True)
+    loader = ShapeNetRender(config.shapenet, staging, args.output, create=True)
 else:
     category = args.category
     loader = PrimitiveRender()

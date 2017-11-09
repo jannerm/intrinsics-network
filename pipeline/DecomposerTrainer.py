@@ -15,13 +15,11 @@ class DecomposerTrainer:
     def __epoch(self):
         self.model.train()
         losses = pipeline.AverageMeter(3)
-        # pdb.set_trace()
         progress = tqdm( total=len(self.loader.dataset) )
 
         for ind, tensors in enumerate(self.loader):
             tensors = [Variable(t.float().cuda(async=True)) for t in tensors]
             inp, mask, refl_targ, depth_targ, shape_targ, lights_targ = tensors
-            # print inp.size(), mask.size()
             self.optimizer.zero_grad()
             refl_pred, depth_pred, shape_pred, lights_pred = self.model.forward(inp, mask)
             refl_loss = self.criterion(refl_pred, refl_targ)

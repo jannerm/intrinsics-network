@@ -13,9 +13,7 @@ You will need [Blender](https://www.blender.org/) (2.76+) and the [ShapeNet](htt
 blender = '/om/user/janner/blender-2.76b/blender'
 shapenet = '/om/data/public/ShapeNetCore.v1'
 ```
-with the absolute paths to the Blender app and the ShapeNet library on your machine.  
-
-If you don't want to render your own datasets, `./download_data.sh` to get the annotated map data and sprites to make new maps.
+with the absolute paths to the Blender app and the ShapeNet library on your machine. The Blender-supplied Python might not come with numpy and scipy. You can either fulfill the same requirements with the Blender Python or replace `include` with a directory containing those libraries. 
 
 ## Data
 
@@ -26,15 +24,15 @@ All of the code to render the training images is in `dataset`.
 The saved images in `dataset/output/car/` should look something like this:
 
 <p align="center">
-    <img src='git/96_composite.png' width='140'/>
-    <img src='git/96_albedo.png' width='140'/>
-    <img src='git/96_shading.png' width='140'/>
-    <img src='git/96_normals.png' width='140'/>
-    <img src='git/96_depth.png' width='140'/>
-    <img src='git/96_lights.png' width='140'/>
+    <img src='git/96_composite.png' width='125'/>
+    <img src='git/96_albedo.png' width='125'/>
+    <img src='git/96_shading.png' width='125'/>
+    <img src='git/96_normals.png' width='125'/>
+    <img src='git/96_depth.png' width='125'/>
+    <img src='git/96_lights.png' width='125'/>
 </p>
 <p align="center">
-    <em> A car with its reflectance, shading, and normals map. The lighting conditions are visualized on a sphere.</em>
+    <em> A car with its reflectance, shading, normals map, and depth. The lighting conditions are visualized on a sphere.</em>
 </p>
 
 Since rendering can be slow, you might want to render many images in parallel. If you use SLURM, you can use `divide.py`, which works like `run.py` but also has a `--divide` argument to launch a large rendering job as many smaller jobs running concurrently.
@@ -63,7 +61,7 @@ python decomposer.py --data_path dataset/output --save_path saved/decomposer --a
 		     --num_val 20 --train_sets motorbike_train, --val_set motorbike_val
 ```
 
-will train a model on just motorbikes, although you can specify more datasets as with `shader.py`. The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `save_path`.
+will train a model on just motorbikes, although you can specify more datasets with a comma-separated list (as shown for the `shader.py command`). The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `save_path`.
 
 ## Transfer
 Coming soon. If you are comfortable with Lua, check out `lua/composer.lua`. 

@@ -5,18 +5,17 @@ import sys, argparse
 ################################
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--gpu', default=False)
-parser.add_argument('--staging', default='staging')
-# parser.add_argument('--shapenet', default='/om/data/public/ilkery/ShapeNetCore.v1/')
-parser.add_argument('--output', default='output/normals/')
-parser.add_argument('--category', default='random')
-parser.add_argument('--x_res', default=256)
-parser.add_argument('--y_res', default=256)
-parser.add_argument('--start', default=0, type=int)
-parser.add_argument('--finish', default=10, type=int)
-parser.add_argument('--array_path', default='arrays/shader.npy')
-parser.add_argument('--include', type=str)
-parser.add_argument('--repeat', default=10, type=int)
+parser.add_argument('--gpu',        default=False,               type=bool, help='gpu-enabled rendering')
+parser.add_argument('--staging',    default='staging',           type=str,  help='temp directory for copying ShapeNet files')
+parser.add_argument('--output',     default='output/normals/',   type=str,  help='save directory')
+parser.add_argument('--category',   default='random',            type=str,  help='object category (from ShapeNet or primitive, see options in config.py)')
+parser.add_argument('--x_res',      default=256,                 type=int,  help='x resolution')
+parser.add_argument('--y_res',      default=256,                 type=int,  help='x resolution')
+parser.add_argument('--start',      default=0,                   type=int,  help='min image index')
+parser.add_argument('--finish',     default=10,                  type=int,  help='max image index')
+parser.add_argument('--array_path', default='arrays/shader.npy', type=str,  help='path to array of lighting parameters')
+parser.add_argument('--include',    default='.',                 type=str,  help='directory to include in python path')
+parser.add_argument('--repeat',     default=10,                  type=int,  help='number of renderings per object')
 
 ## ignore the blender arguments
 cmd = sys.argv
@@ -26,9 +25,9 @@ args = parser.parse_args(args)
 ## blender doesn't by default include, the working 
 ## directory, so add the repo folder manually
 sys.path.append(args.include)
-
-## grad config parameters from repo folder
-import config, dataset.utils as utils
+print(sys.path)
+## grab config parameters from repo folder
+import config
 
 ## add any other libraries not by default in blender's python
 ## (e.g., scipy)

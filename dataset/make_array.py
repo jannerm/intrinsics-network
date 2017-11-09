@@ -4,7 +4,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--lights_energy_low', default=1)
 parser.add_argument('--lights_energy_high', default=5)
-parser.add_argument('--lights_pos_low', default=[0, -2.5, -1])
+parser.add_argument('--lights_pos_low', default=[-5, -2.5, -1])
 parser.add_argument('--lights_pos_high', default=[5, -3.5, 5])
 parser.add_argument('--size', default=20000)
 parser.add_argument('--save_path', default='arrays/shader.npy')

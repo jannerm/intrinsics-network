@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 
 if [[ "$1" == "help" ]] || [ "$#" -eq 0 ]; then
-    echo "example usage: ./download_data { motorbike | airplane | car | bottle }"
+    echo "example usage: ./download_data motorbike airplane"
 else 
     num_categories=$#;
     ## each category has ~2 GB of data

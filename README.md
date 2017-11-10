@@ -45,7 +45,7 @@ We also provide a few of the datasets for download if you do not have Blender or
 ```
 ./download_data.sh { motorbike | airplane | bottle | car | suzanne | teapot | bunny }
 ``` 
-will download train, val, and test sets for the specified catgeory. The ShapeNet categories have about 2GB of data each, and the test shapes have about 1 GB. 
+will download train, val, and test sets for the specified category. The ShapeNet categories have about 2GB of data each, and the test shapes have about 1 GB. 
 
 ## Shader
 
@@ -68,7 +68,7 @@ where the train and val sets are located in `--data_path` and were rendered in t
 
 ```
 python decomposer.py --data_path dataset/output --save_path saved/decomposer --array shader --num_train 20000 \
-		     --num_val 20 --train_sets motorbike_train, --val_set motorbike_val
+		     --num_val 20 --train_sets motorbike_train --val_set motorbike_val
 ```
 
 will train a model on just motorbikes, although you can specify more datasets with a comma-separated list (as shown for the `shader.py command`). The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `--save_path`.

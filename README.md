@@ -45,7 +45,7 @@ We also provide a few of the datasets for download if you do not have Blender or
 ```
 ./download_data.sh { motorbike | airplane | bottle | car | suzanne | teapot | bunny }
 ``` 
-will download train, val, and test sets for the specified category. The ShapeNet categories have about 2GB of data each, and the test shapes have about 1 GB. 
+will download train, val, and test sets for the specified category. There is about 2 GB of data for each of the ShapeNet categories and 200 MB for the test shapes. 
 
 ## Shader
 

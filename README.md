@@ -43,8 +43,9 @@ Since rendering can be slow, you might want to render many images in parallel. I
 #### Download
 We also provide a few of the datasets for download if you do not have Blender or ShapeNet. 
 ```
-./download_data
-```
+./download_data.sh { motorbike | airplane | bottle | car | suzanne | teapot | bunny }
+``` 
+will download train, val, and test sets for the specified catgeory. The ShapeNet categories have about 2GB of data each, and the test shapes have about 1 GB. 
 
 ## Shader
 

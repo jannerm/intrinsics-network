@@ -62,7 +62,7 @@ python shader.py --data_path dataset/output --save_path saved/shader --num_train
 		 --train_sets motorbike_train,airplane_train,bottle_train \
 		 --val_set motorbike_val,airplane_val,bottle_val
 ```
-where the train and val sets are located in `data_path` and were rendered in the previous step. The script will save visualizations of the model's predictions on the validation images every epoch and save them to `save_path` along with the model itself. Note that `num_train` and `num_val` denote the number of images <i>per dataset</i>, so in the above example there will be 30000 total training images and 60 validation images.
+where the train and val sets are located in `--data_path` and were rendered in the previous step. The script will save visualizations of the model's predictions on the validation images every epoch and save them to `--save_path` along with the model itself. Note that `--num_train` and `--num_val` denote the number of images <i>per dataset</i>, so in the above example there will be 30000 total training images and 60 validation images.
 
 ## Intrinsic image prediction
 
@@ -71,8 +71,19 @@ python decomposer.py --data_path dataset/output --save_path saved/decomposer --a
 		     --num_val 20 --train_sets motorbike_train, --val_set motorbike_val
 ```
 
-will train a model on just motorbikes, although you can specify more datasets with a comma-separated list (as shown for the `shader.py command`). The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `save_path`.
+will train a model on just motorbikes, although you can specify more datasets with a comma-separated list (as shown for the `shader.py command`). The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `--save_path`.
 
 ## Transfer
-Coming soon. If you are comfortable with Lua, check out `lua/composer.lua`. 
+After training a decomposer and shader network, you can compose them to improve the representations of the decomposer using unlabeled data. For example, if you trained a decomposer on only the geometric shape primitives, and now wanted to transfer it to the test shapes, you could use:
+```
+python composer.py --decomposer saved/decomposer/state.t7 --shader saved/shader.t7 --save_path saved/composer \
+		   --unlabeled suzanne_train,teapot_train,bunny_train \
+		   --labeled cube_train,sphere_train,cylinder_train,cone_train,torus_train \
+		   --val_sets suzanne_val,teapot_val,bunny_val,cube_val,sphere_val \
+		   --unlabeled_array unlab_shader --labeled_array lab_shader \
+		   --transfer 300_normals --num_epochs 300 --save_model True \
+```
+where `--labeled` contains the labeled datasets and `--unlabeled` the unlabeled datasets. The `--val_sets` are used to make visualizations after every epoch. (It is useful to have some of the labeled datasets in the visualization as well as a sanity check.) The `--array` flags are the names of the arrays with lighting parameters. Using the above rendering examples, this would be `shader`. 
+
+`--transfer` is the most important flag. It specifies a training schedule for the network, of the form `<iters>_<params>,<iters>_<params>,...`. For example, `10_shader,10_normals,reflectance,20_lights` will train only the shading parameters for 10 epochs, then only the parameters of the reflectance and normals decoders for 10 epochs, and then the lighting deocoder for 20 epochs. This 40-epoch cycle will continue for `--num_epochs` epochs.
 

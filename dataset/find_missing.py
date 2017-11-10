@@ -1,5 +1,5 @@
 import os
-path = 'output/bottle_train/'
+path = 'output/car_train/'
 
 # car, boat, motorbike, bottle done
 
@@ -7,12 +7,12 @@ path = 'output/bottle_train/'
 
 print path
 
-numIDs = 10000
+numIDs = 20000
 
 lowers = []
 face = 0
 while face < numIDs:
-    if face % 1000 == 0:
+    if face % 5000 == 0:
         print 'Checking: ', face
     if not (os.path.exists( path + str(face) + '_normals.png' ) and \
         os.path.exists( path + str(face) + '_mask.png' ) and \

@@ -81,7 +81,7 @@ python composer.py --decomposer saved/decomposer/state.t7 --shader saved/shader.
 		   --labeled cube_train,sphere_train,cylinder_train,cone_train,torus_train \
 		   --val_sets suzanne_val,teapot_val,bunny_val,cube_val,sphere_val \
 		   --unlabeled_array unlab_shader --labeled_array lab_shader \
-		   --transfer 300_normals --num_epochs 300 --save_model True \
+		   --transfer 300_normals --num_epochs 300 --save_model True 
 ```
 where `--labeled` contains the labeled datasets and `--unlabeled` the unlabeled datasets. The `--val_sets` are used to make visualizations after every epoch. (It is useful to have some of the labeled datasets in the visualization as well as a sanity check.) The `--array` flags are the names of the arrays with lighting parameters. Using the above rendering examples, this would be `shader`. `--decomposer` and `--shader` point to the saved networks trained in the previous steps.
 

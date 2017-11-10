@@ -32,7 +32,7 @@ class PrimitiveRender:
             bpy.data.objects['Suzanne'].name = 'shape'
             bpy.ops.object.shade_smooth()
         elif category == 'bunny':
-            bpy.ops.import_mesh.stl(filepath='objects/bunny_low_res.stl')
+            bpy.ops.import_mesh.stl(filepath='objects/bunny.stl')
             for obj in bpy.data.objects:
                 name = obj.name
                 print('NAME: ', name)

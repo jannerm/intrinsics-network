@@ -13,9 +13,7 @@ You will need [Blender](https://www.blender.org/) (2.76+) and the [ShapeNet](htt
 blender = '/om/user/janner/blender-2.76b/blender'
 shapenet = '/om/data/public/ShapeNetCore.v1'
 ```
-with the absolute paths to the Blender app and the ShapeNet library on your machine.  
-
-If you don't want to render your own datasets, `./download_data.sh` to get the annotated map data and sprites to make new maps.
+with the absolute paths to the Blender app and the ShapeNet library on your machine. The Blender-supplied Python might not come with numpy and scipy. You can either fulfill the same requirements with the Blender Python or replace `include` with a directory containing those libraries. 
 
 ## Data
 
@@ -72,7 +70,7 @@ python decomposer.py --data_path dataset/output --save_path saved/decomposer --a
 		     --num_val 20 --train_sets motorbike_train, --val_set motorbike_val
 ```
 
-will train a model on just motorbikes, although you can specify more datasets as with `shader.py`. The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `save_path`.
+will train a model on just motorbikes, although you can specify more datasets with a comma-separated list (as shown for the `shader.py command`). The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `save_path`.
 
 ## Transfer
 Coming soon. If you are comfortable with Lua, check out `lua/composer.lua`. 

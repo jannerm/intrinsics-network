@@ -2,7 +2,7 @@
 Code and data to reproduce the experiments in [Self-Supervised Intrinsic Image Decomposition](http://people.csail.mit.edu/janner/papers/intrinsic_nips_2017.pdf).
 
 <p align="center">
-    <img src='git/intrinsic.png' width='500'/>
+    <img src='git/figures/intrinsic.png' width='500'/>
 </p>
 
 ## Installation
@@ -21,28 +21,37 @@ If you don't want to render your own datasets, `./download_data.sh` to get the a
 
 All of the code to render the training images is in `dataset`. 
 1. Make an array of lighting conditions with `python make_array.py --size 20000`. See the parser arguments for lighting options. An array with the defaults is already at `dataset/arrays/shader.npy`.
-2. `python run.py --category car --output output/car --low 0 --high 100 --repeat 5` will render 100 composite car images (numbered 0 through 100) along with the corresponding images. It will reuse a given car model 5 times before loading a new one. (Images of the same model will differ in orientation and lighting.) The available categories are given in `config.py`.
+2. `python run.py --category motorbike --output output/motorbike --low 0 --high 100 --repeat 5` will render 100 composite motorbike images (numbered 0 through 100) along with the corresponding images. It will reuse a given motorbike model 5 times before loading a new one. (Images of the same model will differ in orientation and lighting.) 
 
-The saved images in `dataset/output/car/` should look something like this:
+The saved images in `dataset/output/motorbike/` should look something like this:
 
 <p align="center">
-    <img src='git/96_composite.png' width='140'/>
-    <img src='git/96_albedo.png' width='140'/>
-    <img src='git/96_shading.png' width='140'/>
-    <img src='git/96_normals.png' width='140'/>
-    <img src='git/96_depth.png' width='140'/>
-    <img src='git/96_lights.png' width='140'/>
+    <img src='git/shapenet/96_composite.png' width='140'/>
+    <img src='git/shapenet/96_albedo.png' width='140'/>
+    <img src='git/shapenet/96_shading.png' width='140'/>
+    <img src='git/shapenet/96_normals.png' width='140'/>
+    <img src='git/shapenet/96_depth.png' width='140'/>
+    <img src='git/shapenet/96_lights.png' width='140'/> 
 </p>
 <p align="center">
-    <em> A car with its reflectance, shading, and normals map. The lighting conditions are visualized on a sphere.</em>
+    <em> A motorbike with its reflectance, shading, and normals map. The lighting conditions are visualized on a sphere.</em>
 </p>
 
-Since rendering can be slow, you might want to render many images in parallel. If you use SLURM, you can use `divide.py`, which works like `run.py` but also has a `--divide` argument to launch a large rendering job as many smaller jobs running concurrently.
+The available ShapeNet categories are given in `config.py`. There are also a few geometric primitives (`cube`, `sphere`, `cylinder`, `cone`, `torus`) and standard test shapes (Utah `teapot`, Stanford `bunny`, Blender's `suzanne`). If you want to render other categories from ShapeNet, just add its name and ID to the dictionary in `config.py` and put the location, orientation, and size parameters in `dataset/utils.py`.
+
+#### Batching
+Since rendering can be slow, you might want to render many images in parallel. If you are on a system with SLURM, you can use `divide.py`, which works like `run.py` but also has a `--divide` argument to launch a large rendering job as many smaller jobs running concurrently.
+
+#### Download
+We also provide a few of the datasets for download if you do not have Blender or ShapeNet. 
+```
+./download_data
+```
 
 ## Shader
 
 <p align="center">
-    <img src='git/shader.png' width='750'/>
+    <img src='git/figures/shader.png' width='750'/>
 </p>
 <p align="center">
     <em> Example input shapes and lighting conditions alongside the model's predicted shading image. After training only on synthetic cars like those on the left, the model can generalize to images like the real Beethoven bust on the right.</em>

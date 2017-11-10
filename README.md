@@ -8,7 +8,7 @@ Code and data to reproduce the experiments in [Self-Supervised Intrinsic Image D
 ## Installation
 Get [PyTorch](http://pytorch.org/) and `pip install -r requirements`
 
-You will need [Blender](https://www.blender.org/) (2.76+) and the [ShapeNet](https://www.shapenet.org/) repository. In `config.py`, replace these lines:
+You will also need [Blender](https://www.blender.org/) (2.76+) and the [ShapeNet](https://www.shapenet.org/) repository. In `config.py`, replace these lines:
 ```
 blender = '/om/user/janner/blender-2.76b/blender'
 shapenet = '/om/data/public/ShapeNetCore.v1'

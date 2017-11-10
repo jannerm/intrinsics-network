@@ -74,7 +74,7 @@ python decomposer.py --data_path dataset/output --save_path saved/decomposer --a
 will train a model on just motorbikes, although you can specify more datasets with a comma-separated list (as shown for the `shader.py command`). The rest of the options are analogous as well except for `array`, which is the lighting parameter array used to generate the data. The script will save the model, visualizations, and error plots to `--save_path`.
 
 ## Transfer
-After training a decomposer and shader network, you can compose them to improve the representations of the decomposer using unlabeled data. For example, if you trained a decomposer on only the geometric shape primitives, and now wanted to transfer it to the test shapes, you could use:
+After training a decomposer and shader network, you can compose them to improve the representations of the decomposer using unlabeled data. If you have trained a decomposer on only the geometric shape primitives, and now wanted to transfer it to the test shapes, you could use:
 ```
 python composer.py --decomposer saved/decomposer/state.t7 --shader saved/shader.t7 --save_path saved/composer \
 		   --unlabeled suzanne_train,teapot_train,bunny_train \

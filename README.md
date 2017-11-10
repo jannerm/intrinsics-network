@@ -83,7 +83,7 @@ python composer.py --decomposer saved/decomposer/state.t7 --shader saved/shader.
 		   --unlabeled_array unlab_shader --labeled_array lab_shader \
 		   --transfer 300_normals --num_epochs 300 --save_model True \
 ```
-where `--labeled` contains the labeled datasets and `--unlabeled` the unlabeled datasets. The `--val_sets` are used to make visualizations after every epoch. (It is useful to have some of the labeled datasets in the visualization as well as a sanity check.) The `--array` flags are the names of the arrays with lighting parameters. Using the above rendering examples, this would be `shader`. 
+where `--labeled` contains the labeled datasets and `--unlabeled` the unlabeled datasets. The `--val_sets` are used to make visualizations after every epoch. (It is useful to have some of the labeled datasets in the visualization as well as a sanity check.) The `--array` flags are the names of the arrays with lighting parameters. Using the above rendering examples, this would be `shader`. `--decomposer` and `--shader` point to the saved networks trained in the previous steps.
 
 `--transfer` is the most important flag. It specifies a training schedule for the network, of the form `<iters>_<params>,<iters>_<params>,...`. For example, `10_shader,10_normals,reflectance,20_lights` will train only the shading parameters for 10 epochs, then only the parameters of the reflectance and normals decoders for 10 epochs, and then the lighting deocoder for 20 epochs. This 40-epoch cycle will continue for `--num_epochs` epochs.
 

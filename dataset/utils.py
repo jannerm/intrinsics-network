@@ -32,6 +32,6 @@ render_parameters = {
     'cone':         {'scale_low': 3.0, 'scale_high': 5.0, 'pos_low': [-2,0,-2], 'pos_high': [2, 0, 2], 'theta_low': [60, -45, 0], 'theta_high': [120, 45, 360]},
     'torus':        {'scale_low': 3.0, 'scale_high': 5.0, 'pos_low': [-2,0,-2], 'pos_high': [2, 0, 2], 'theta_low': [60, -45, 0], 'theta_high': [120, 45, 360]},
     'suzanne':      {'scale_low': 7.0, 'scale_high': 7.5, 'pos_low': [0, 0, 0], 'pos_high': [0, 0, 0], 'theta_low': [-30, 0,-65], 'theta_high': [-15,  0,  65]},
-    'bunny':        {'scale_low': 4.0, 'scale_high': 6.0, 'pos_low': [0, 0,-2], 'pos_high': [0, 0,-2], 'theta_low': [0,   0,-65], 'theta_high': [0,    0, -65]},
-    'teapot':       {'scale_low': 5.0, 'scale_high': 7.5, 'pos_low': [0, 0,-2], 'pos_high': [0, 0,-2], 'theta_low': [0,   0,-65], 'theta_high': [0,    0, -65]}
+    'bunny':        {'scale_low': 4.0, 'scale_high': 6.0, 'pos_low': [0, 0,-2], 'pos_high': [0, 0,-2], 'theta_low': [0,   0,-65], 'theta_high': [0,    0,  65]},
+    'teapot':       {'scale_low': 5.0, 'scale_high': 7.5, 'pos_low': [0, 0,-2], 'pos_high': [0, 0,-2], 'theta_low': [0,   0,-65], 'theta_high': [0,    0,  65]}
 }

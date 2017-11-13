@@ -19,7 +19,7 @@ with the absolute paths to the Blender app and the ShapeNet library on your mach
 
 All of the code to render the training images is in `dataset`. 
 1. Make an array of lighting conditions with `python make_array.py --size 20000`. See the parser arguments for lighting options. An array with the defaults is already at `dataset/arrays/shader.npy`.
-2. `python run.py --category motorbike --output output/motorbike --low 0 --high 100 --repeat 5` will render 100 composite motorbike images (numbered 0 through 100) along with the corresponding images. It will reuse a given motorbike model 5 times before loading a new one. (Images of the same model will differ in orientation and lighting.) 
+2. `python run.py --category motorbike --output output/motorbike --low 0 --high 100 --repeat 5` will render 100 composite motorbike images (numbered 0 through 100) along with the corresponding intrinsic images. It will reuse a given motorbike model 5 times before loading a new one. (Images of the same model will differ in orientation and lighting.) 
 
 The saved images in `dataset/output/motorbike/` should look something like this:
 

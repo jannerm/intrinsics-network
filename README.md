@@ -15,6 +15,8 @@ shapenet = '/om/data/public/ShapeNetCore.v1'
 ```
 with the absolute paths to the Blender app and the ShapeNet library on your machine. The Blender-supplied Python might not come with numpy and scipy. You can either fulfill the same requirements with the Blender Python or replace `include` with a directory containing those libraries. 
 
+<b>Note:</b> There were a few <a href="https://github.com/pytorch/pytorch/releases/tag/v0.2.0">breaking changes</a> in a recent PyTorch release that affected this repo. For now, the repo is compatible with v0.1.12 (`torch.__version__` to check)
+
 ## Data
 
 All of the code to render the training images is in `dataset`. 

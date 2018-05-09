@@ -30,8 +30,7 @@ class Render:
         subprocess.Popen(['rm', '-r', path])
 
     def __blender(self, lights_path, write_path, verbose):
-        # script_path = '../dataset/vis_lights.py'
-        script_path = '/om/user/janner/mit/urop/intrinsic/dataset/vis_lights.py'
+        script_path = '../dataset/vis_lights.py'
         command =   [   '/om/user/janner/blender-2.76b-linux-glibc211-x86_64/blender', 
                         '--background', '-noaudio', '--python', script_path, '--', \
                         '--lights_path', lights_path, '--save_path', write_path]

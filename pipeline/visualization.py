@@ -23,7 +23,7 @@ def visualize_shader(model, loader, save_path, save_raw = False):
         for ind, tensors in enumerate(loader):
 
             inp = [ Variable( t.float().cuda(async=True) ) for t in tensors[:-1] ]
-            targ = tensors[-1].float()
+            targ = tensors[-1].float().cuda()
             pred = model.forward(*inp).data
 
             # pdb.set_trace()

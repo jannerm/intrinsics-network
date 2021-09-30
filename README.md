@@ -5,6 +5,8 @@ Code and data to reproduce the experiments in [Self-Supervised Intrinsic Image D
     <img src='git/figures/intrinsic.png' width='500'/>
 </p>
 
+This repo contains the original Lua Torch implementation of this work in the [lua](lua) folder.
+
 ## Installation
 Get [PyTorch](http://pytorch.org/) and `pip install -r requirements`
 
